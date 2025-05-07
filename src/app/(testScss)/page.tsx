@@ -1,6 +1,6 @@
 import React from "react";
 
 export default function page() {
-    var abc  = "abc"
-    return <div>page</div>;
+    const abc = "abc";
+    return <div>{abc}</div>;
 }
