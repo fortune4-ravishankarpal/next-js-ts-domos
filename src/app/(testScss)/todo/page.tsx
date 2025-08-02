@@ -2,7 +2,7 @@ import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query
 import Posts from "./Posts";
 
 async function getPosts() {
-    const res = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=2");
+    const res = await fetch("http://localhost:3002/posts");
     if (!res.ok) {
         throw new Error("Network response was not ok");
     }

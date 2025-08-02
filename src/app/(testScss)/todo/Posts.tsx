@@ -2,7 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 const fetchPosts = async () => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=2");
+    const res = await fetch("http://localhost:3002/posts");
     if (!res.ok) throw new Error("Network error");
     const data = await res.json();
     console.log("[94m [ res client side ]-6 [0m", data);
@@ -13,6 +13,8 @@ export default function Posts() {
     const { data, error, isLoading } = useQuery({
         queryKey: ["posts"],
         queryFn: fetchPosts,
+        staleTime: Infinity,
+        refetchOnMount: false,
     });
     console.log("[38;5;220m [ data ]-12 [0m", data);
 
