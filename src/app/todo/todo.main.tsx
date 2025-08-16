@@ -9,30 +9,30 @@ export function Todos() {
 
     return (
         <ul>
-            <AddPost />
-            {Array.isArray(data) && data?.map((post: tTodo, i) => <PostDetail key={i} post={post} />)}
+            <AddTodo />
+            {Array.isArray(data) && data?.map((Todo: tTodo, i) => <TodoDetail key={i} Todo={Todo} />)}
         </ul>
     );
 }
 
-function PostDetail({ post }: { post: tTodo }) {
-    const m = useForm({ defaultValues: post });
-    const update = useUpdateTodoMutation(post.id);
-    const deletePost = useDeleteTodoMutation();
+function TodoDetail({ Todo }: { Todo: tTodo }) {
+    const m = useForm({ defaultValues: Todo });
+    const update = useUpdateTodoMutation(Todo.id);
+    const deleteTodo = useDeleteTodoMutation();
     return (
         <form onSubmit={m.handleSubmit((data) => update.mutate(data))}>
             <input {...m.register("title")} />
             <button type="submit" disabled={update.isPending}>
                 Update
             </button>
-            <button type="button" disabled={deletePost.isPending} onClick={() => deletePost.mutate(post.id)}>
+            <button type="button" disabled={deleteTodo.isPending} onClick={() => deleteTodo.mutate(Todo.id)}>
                 Delete
             </button>
         </form>
     );
 }
 
-function AddPost() {
+function AddTodo() {
     const m = useForm<{ title: string }>({ defaultValues: { title: "" } });
     const createMutation = useCreateTodoMutation();
     const handleSubmit = async (data: { title: string }) => {
