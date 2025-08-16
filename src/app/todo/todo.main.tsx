@@ -2,11 +2,12 @@
 import { useForm } from "react-hook-form";
 import { useCreateTodoMutation, useDeleteTodoMutation, useGetTodo, useUpdateTodoMutation } from "./todo.service";
 import { tTodo } from "@/app/todo/todo.type";
+import { temp } from "@/controller/todo";
 export function Todos() {
     const { data, error, isLoading } = useGetTodo();
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {(error as { message: string }).message}</div>;
-
+    temp().then(console.log);
     return (
         <ul>
             <AddTodo />

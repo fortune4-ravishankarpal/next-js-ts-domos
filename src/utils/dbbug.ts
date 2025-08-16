@@ -7,7 +7,10 @@ export const initDebug = () => {
         if (!currentDebug) {
             localStorage.setItem("debug", "app:client:*");
         }
-        debug.enable(localStorage.getItem("debug"));
+        const gotLog = localStorage.getItem("debug");
+        if (gotLog) {
+            debug.enable(gotLog);
+        }
         logClient("init")("Debug log mode enabled:", localStorage.getItem("debug"));
     } else {
         debug.enable("app:server:*");
