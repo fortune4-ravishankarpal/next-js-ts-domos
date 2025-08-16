@@ -1,27 +1,27 @@
 {
-  "todos": [
-    {
-      "id": "6681",
-      "title": "test5"
-    },
-    {
-      "id": "317e",
-      "title": "abc"
+    "todos": [
+        {
+            "id": "6681",
+            "title": "test5"
+        },
+        {
+            "id": "317e",
+            "title": "abc"
+        }
+    ],
+    "comments": [
+        {
+            "id": "1",
+            "text": "a comment about post 1",
+            "postId": null
+        },
+        {
+            "id": "2",
+            "text": "another comment about post 1",
+            "postId": null
+        }
+    ],
+    "profile": {
+        "name": "typicode"
     }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": null
-    },
-    {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": null
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
 }

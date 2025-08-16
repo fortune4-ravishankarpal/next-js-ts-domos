@@ -10,6 +10,7 @@
         "lint:fix": "next lint --fix",
         "format": "prettier --write .",
         "prepare": "husky",
+        "fix": "prettier --write . && next lint --fix",
         "db": "json-server --watch db.json --port 3002"
     },
     "lint-staged": {
