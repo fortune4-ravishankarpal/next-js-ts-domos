@@ -1,21 +1,7 @@
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
-import Posts from "./Posts";
+import { Posts } from "./Posts";
 
-async function getPosts() {
-    const res = await fetch("http://localhost:3002/posts");
-    if (!res.ok) {
-        throw new Error("Network response was not ok");
-    }
-    // Simulating a delay to mimic real-world scenarios
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    const data = await res.json();
-    console.log("[94m [ res server side ]-6 [0m", data);
-    if (!data) {
-        return res.json();
-    }
-    return data;
-}
-
+import { getPosts } from "./post.api";
 export default async function Page() {
     const queryClient = new QueryClient();
     await queryClient.prefetchQuery({ queryKey: ["posts"], queryFn: getPosts });
