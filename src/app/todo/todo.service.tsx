@@ -4,10 +4,12 @@ import { gets, create, update, del } from "./todo.api";
 import { apiEndPoint, tTodo } from "@/app/todo/todo.type";
 
 export function useGetTodo() {
+    console.log("client list called");
     return useQuery({
         queryKey: [apiEndPoint.todos],
-        queryFn: gets,
+        queryFn: async () => await gets().catch(() => []),
         staleTime: 10 * 1000,
+        retry: false,
     });
 }
 export function useUpdateTodoMutation(todoId: number) {
